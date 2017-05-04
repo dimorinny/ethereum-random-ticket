@@ -1,0 +1,12 @@
+.ticket_generate_container {
+    width: 180px;
+    margin: 0 auto;
+}
+
+.ticket {
+    text-align: center;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    font-size: 20pt;
+    font-family: monospace;
+}
