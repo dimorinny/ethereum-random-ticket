@@ -37,3 +37,21 @@ contract(contractName, () => {
             .should.be.rejected;
     });
 });
+
+contract(contractName, () => {
+    it('generating numbers should cost less', () => {
+        const expectedTicketGeneratingCoast = 100000;
+
+        let contract;
+
+        return Lottery.deployed()
+            .then(instance => {
+                contract = instance;
+            })
+            .then(() => contract.generateTicket())
+            .then(({receipt: {gasUsed}}) => {
+                console.log(gasUsed);
+                expect(gasUsed).to.be.below(expectedTicketGeneratingCoast)
+            });
+    });
+});
