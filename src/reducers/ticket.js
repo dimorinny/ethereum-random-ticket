@@ -18,7 +18,7 @@ export default typeToReducer({
         REJECTED: (state, action) => ({
             ...state,
             isPending: false,
-            error: 'Ticket loading error',
+            error: 'You don\'t have a ticket',
             ticket: null
         }),
         FULFILLED: (state, action) => ({

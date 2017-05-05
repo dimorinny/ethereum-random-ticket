@@ -40,7 +40,7 @@ contract(contractName, () => {
 
 contract(contractName, () => {
     it('generating numbers should cost less', () => {
-        const expectedTicketGeneratingCoast = 100000;
+        const expectedTicketGeneratingCoast = 40000;
 
         let contract;
 

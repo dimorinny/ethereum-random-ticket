@@ -8,14 +8,14 @@ library TicketsStorageLibrary {
     }
 
     struct Ticket {
-        uint[5] ticket;
+        uint seed;
         uint index;
         bool exists;
     }
 
     function addTicket(
         TicketsStorage storage tickets,
-        uint[5] ticketData,
+        uint seed,
         address owner
     ) {
         if (!tickets.tickets[owner].exists) {
@@ -24,7 +24,7 @@ library TicketsStorageLibrary {
             tickets.tickets[owner].exists = true;
         }
 
-        tickets.tickets[owner].ticket = ticketData;
+        tickets.tickets[owner].seed = seed;
     }
 
     function ownerExists(
@@ -34,10 +34,10 @@ library TicketsStorageLibrary {
         return tickets.tickets[owner].exists;
     }
 
-    function getTicket(
+    function getSeed(
         TicketsStorage storage tickets,
         address owner
-    ) constant returns (uint[5]) {
-        return tickets.tickets[owner].ticket;
+    ) constant returns (uint) {
+        return tickets.tickets[owner].seed;
     }
 }

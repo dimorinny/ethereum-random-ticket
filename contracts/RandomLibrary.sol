@@ -2,12 +2,12 @@ pragma solidity ^0.4.2;
 
 library RandomLibrary {
 
-    function generateRandomItems(uint before) constant returns (uint[5]) {
+    function generateRandomItems(uint seed, uint max) constant returns (uint[5]) {
         uint[5] memory result;
-        uint currentSeed = generateSeed();
+        uint currentSeed = seed;
 
         for (uint i = 0; i < 5; i++) {
-            result[i] = currentSeed % before + 1;
+            result[i] = currentSeed % max + 1;
             currentSeed = lcg(currentSeed);
         }
 
