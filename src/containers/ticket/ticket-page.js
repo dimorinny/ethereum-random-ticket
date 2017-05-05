@@ -31,7 +31,6 @@ export default class TicketPage extends Component {
 
     render() {
         const {ticketState, actions} = this.props;
-
         const {ticket, isPending, error} = ticketState;
 
         let content;
