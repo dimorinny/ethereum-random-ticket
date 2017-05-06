@@ -4,12 +4,10 @@ library TicketsStorageLibrary {
 
     struct TicketsStorage {
         mapping (address => Ticket) tickets;
-        address[] ownersIndex;
     }
 
     struct Ticket {
         uint seed;
-        uint index;
         bool exists;
     }
 
@@ -19,8 +17,6 @@ library TicketsStorageLibrary {
         address owner
     ) {
         if (!tickets.tickets[owner].exists) {
-            tickets.ownersIndex.push(owner);
-            tickets.tickets[owner].index = tickets.ownersIndex.length - 1;
             tickets.tickets[owner].exists = true;
         }
 
