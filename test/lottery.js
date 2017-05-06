@@ -40,7 +40,7 @@ contract(contractName, () => {
 
 contract(contractName, () => {
     it('generating numbers should cost less', () => {
-        const expectedTicketGeneratingCoast = 40000;
+        const expectedTicketGeneratingCost = 40000;
 
         let contract;
 
@@ -51,7 +51,7 @@ contract(contractName, () => {
             .then(() => contract.generateTicket())
             .then(({receipt: {gasUsed}}) => {
                 console.log(gasUsed);
-                expect(gasUsed).to.be.below(expectedTicketGeneratingCoast)
+                expect(gasUsed).to.be.below(expectedTicketGeneratingCost)
             });
     });
 });
